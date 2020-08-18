@@ -1,7 +1,7 @@
-package introductionToPatterns.classes;
+package strategy.classes;
 
-import introductionToPatterns.internals.impl.FlyWidthWings;
-import introductionToPatterns.internals.impl.Quack;
+import strategy.internals.impl.FlyWidthWings;
+import strategy.internals.impl.Quack;
 
 public class MallardDuck extends Duck{
 

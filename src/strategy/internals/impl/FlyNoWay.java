@@ -1,6 +1,6 @@
-package introductionToPatterns.internals.impl;
+package strategy.internals.impl;
 
-import introductionToPatterns.internals.FlyBehavior;
+import strategy.internals.FlyBehavior;
 
 public class FlyNoWay implements FlyBehavior {
 

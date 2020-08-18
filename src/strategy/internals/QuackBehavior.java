@@ -1,4 +1,4 @@
-package introductionToPatterns.internals;
+package strategy.internals;
 
 public interface QuackBehavior {
     void quack();

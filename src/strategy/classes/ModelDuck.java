@@ -1,7 +1,7 @@
-package introductionToPatterns.classes;
+package strategy.classes;
 
-import introductionToPatterns.internals.impl.FlyNoWay;
-import introductionToPatterns.internals.impl.Quack;
+import strategy.internals.impl.FlyNoWay;
+import strategy.internals.impl.Quack;
 
 public class ModelDuck extends Duck {
 

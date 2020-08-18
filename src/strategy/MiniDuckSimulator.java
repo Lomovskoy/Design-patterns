@@ -1,9 +1,9 @@
-package introductionToPatterns;
+package strategy;
 
-import introductionToPatterns.classes.Duck;
-import introductionToPatterns.classes.MallardDuck;
-import introductionToPatterns.classes.ModelDuck;
-import introductionToPatterns.internals.impl.FlyRocketPowered;
+import strategy.classes.Duck;
+import strategy.classes.MallardDuck;
+import strategy.classes.ModelDuck;
+import strategy.internals.impl.FlyRocketPowered;
 
 public class MiniDuckSimulator {
 
