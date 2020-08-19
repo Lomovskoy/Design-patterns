@@ -14,7 +14,7 @@ public class InputTest {
                             )
                     );
             while ((c = in.read()) >= 0){
-                System.out.println(c);
+                System.out.print((char)c);
             }
             in.close();
         } catch (IOException e) {
