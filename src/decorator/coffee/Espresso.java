@@ -1,4 +1,6 @@
-package decorator;
+package decorator.coffee;
+
+import decorator.basic.Beverage;
 
 public class Espresso extends Beverage {
 

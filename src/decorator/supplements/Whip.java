@@ -1,6 +1,9 @@
-package decorator;
+package decorator.supplements;
 
-public class Whip extends CondimentDecorator{
+import decorator.basic.Beverage;
+import decorator.basic.CondimentDecorator;
+
+public class Whip extends CondimentDecorator {
     Beverage beverage;
 
     public Whip(Beverage beverage){

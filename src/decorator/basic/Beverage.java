@@ -1,4 +1,4 @@
-package decorator;
+package decorator.basic;
 
 public abstract class Beverage {
 
