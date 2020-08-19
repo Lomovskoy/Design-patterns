@@ -2,23 +2,18 @@ package observer.internals.impl;
 
 import observer.classes.WeatherData;
 import observer.internals.DisplayElement;
-import observer.internals.Observer;
+
+import java.util.Observable;
+import java.util.Observer;
 
 public class ForecastDisplay implements Observer, DisplayElement {
-	private float currentPressure = 29.92f;  
+	private float currentPressure = 29.92f;
 	private float lastPressure;
-	private WeatherData weatherData;
+	Observable observable;
 
-	public ForecastDisplay(WeatherData weatherData) {
-		this.weatherData = weatherData;
-		weatherData.registerObserver(this);
-	}
-
-	public void update(float temp, float humidity, float pressure) {
-                lastPressure = currentPressure;
-		currentPressure = pressure;
-
-		display();
+	public ForecastDisplay(Observable observable) {
+		this.observable = observable;
+		observable.addObserver(this);
 	}
 
 	public void display() {
@@ -29,6 +24,16 @@ public class ForecastDisplay implements Observer, DisplayElement {
 			System.out.println("Погода будет стабильной");
 		} else if (currentPressure < lastPressure) {
 			System.out.println("Остерегайтесь более прохладной дождливой погоды");
+		}
+	}
+
+	@Override
+	public void update(Observable obs, Object arg) {
+		if (obs instanceof WeatherData){
+			WeatherData weatherData = (WeatherData) obs;
+			lastPressure = currentPressure;
+			currentPressure = weatherData.getPressure();
+			display();
 		}
 	}
 }

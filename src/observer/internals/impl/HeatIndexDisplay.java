@@ -2,18 +2,17 @@ package observer.internals.impl;
 
 import observer.classes.WeatherData;
 import observer.internals.DisplayElement;
-import observer.internals.Observer;
+
+import java.util.Observable;
+import java.util.Observer;
 
 public class HeatIndexDisplay implements Observer, DisplayElement {
     float heatIndex;
+    Observable observable;
 
-    public HeatIndexDisplay(WeatherData weatherData) {
-        weatherData.registerObserver(this);
-    }
-
-    public void update(float t, float rh, float pressure) {
-        heatIndex = computeHeatIndex(t, rh);
-        display();
+    public HeatIndexDisplay(Observable observable) {
+        this.observable = observable;
+        observable.addObserver(this);
     }
 
     private float computeHeatIndex(float t, float rh) {
@@ -29,5 +28,16 @@ public class HeatIndexDisplay implements Observer, DisplayElement {
 
     public void display() {
         System.out.println("Ощущается как " + heatIndex + "F");
+    }
+
+    @Override
+    public void update(Observable obs, Object arg) {
+        if (obs instanceof WeatherData){
+            WeatherData weatherData = (WeatherData) obs;
+            var temperature = weatherData.getTemperature();
+            var humidity = weatherData.getHumidity();
+            heatIndex = computeHeatIndex(temperature, humidity);
+            display();
+        }
     }
 }
