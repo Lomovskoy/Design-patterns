@@ -18,9 +18,5 @@ public abstract class Pizza {
 
     }
 
-    public void isPrepare() {
-
-    }
-
     public abstract String description();
 }
